@@ -1,5 +1,10 @@
 FROM anasty17/mltb:latest
 
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
+
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
