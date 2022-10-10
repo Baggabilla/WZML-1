@@ -51,6 +51,87 @@ List of Variables used by the Bot
 Steps to Deploy the Bot to Run for Yourself
 
 ---
+### Deploying on VPS
+**NOTE**: If you want to use port other than 80, change it ) also.
+
+## Deploying on VPS Using Docker
+- Clone this repo:
+```
+git clone https://github.com/weebzone/WZML mirrorbot/ && cd mirrorbot
+```
+- Start Docker daemon (SKIP if already running):
+```
+sudo dockerd
+```
+- Build Docker image:
+```
+sudo docker build . -t mirror-bot
+```
+- Run the image:
+```
+sudo docker run -p 80:80 mirror-bot
+```
+
+
+## To stop the image:
+```
+sudo docker ps
+```
+##
+```
+sudo docker stop id
+```
+
+## Bot commands to be set in [@BotFather](https://t.me/BotFather)
+
+```
+status - Shows a status of all the downloads
+speedtest - Speedtest of server
+leech - Start leeching to Telegram, Use /leech s to select files before leeching
+mirror - Start mirroring to Google Drive.
+qbzipmirror - [magnet_link][torrent_file][torrent_file_url] Start mirroring using qBittorrent and upload the file/folder compressed with zip extension
+qbmirror - [magnet_link][torrent_file][torrent_file_url] Start Mirroring using qBittorrent
+qbmirrors - to select files before downloading
+clone - [drive_url][gdtot_url] Copy file/folder to Google Drive
+qbleech - [magnet_link][torrent_file][torrent_file_url]  Start leeching to Telegram using qBittorrent, Use 
+qbleechs - Qbleech to select files before leeching
+qbzipleech - [magnet_link][torrent_file][torrent_file_url] Start leeching to Telegram using qBittorrent and upload the file/folder compressed with zip extension
+qbunzipleech - [magnet_link][torrent_file][torrent_file_url] Start leeching to Telegram using qBittorrent and upload the file/folder extracted from any archive extension
+prename - Set Prename to leech files
+caption - Set Caption for leech files
+zipmirror - [download_url][magnet_link] Start mirroring and upload the file/folder compressed with zip extension
+unzipmirror - [download_url][magnet_link] Start mirroring and upload the file/folder extracted from any archive extension
+zipleech - [download_url][magnet_link] Start leeching to Telegram and upload the file/folder compressed with zip extension
+unzipleech - [download_url][magnet_link][torent_file] Start leeching to Telegram and upload the file/folder extracted from any archive extension
+count - [drive_url][gdtot_url] Count file/folder of Google Drive
+del - [drive_url] Delete file/folder from Google Drive (Only Owner & Sudo)
+watch - [yt-dlp supported link] Mirror yt-dlp supported link 
+zipwatch - [yt-dlp supported link] Mirror yt-dlp supported link as zip
+leechwatch -  [yt-dlp supported link] Leech yt-dlp supported link
+leechzipwatch - [yt-dlp supported link] Leech yt-dlp supported link as zip
+dumpid - Add Dump Channel for leech files. make sure bot should an admin in dump channel.
+leechset - Leech settings
+scrape - Magnet Scaper Scrape magnets from 1Tamilmv, Tamilblaster, Cinevez, Movierulzz and many more sites
+setthumb - Reply photo to set it as Thumbnail
+cancel - Reply to the message by which the download was initiated and that download will be cancelled
+cancelall - /cancelall - Cancel all downloading tasks
+list - [query] - Search in Google Drive(s)
+search - [query] - Search for torrents with API
+stats - Show Stats of the machine the bot is hosted on
+ping - Check how long it takes to Ping the Bot
+authorize - Authorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
+unauthorize - Unauthorize a chat or a user to use the bot (Can only be invoked by Owner & Sudo of the bot)
+users - Show authorized users (Only Owner & Sudo)
+addsudo - Add sudo user (Only Owner)
+rmsudo - Remove sudo users (Only Owner)
+paid - Show Paid users (Only Owner & Sudo)
+addpaid - Authorize Paid users (Only Owner)
+rmpaid - Unauthorize Paid users (Only Owner)
+restart - Restart and update the bot (Only Owner & Sudo)
+log - Get a log file of the bot. Handy for getting crash reports
+```
+------
+
 
 ## License ⚠️
 
