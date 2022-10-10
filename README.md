@@ -110,6 +110,7 @@ leechwatch -  [yt-dlp supported link] Leech yt-dlp supported link
 leechzipwatch - [yt-dlp supported link] Leech yt-dlp supported link as zip
 dumpid - Add Dump Channel for leech files. make sure bot should an admin in dump channel.
 leechset - Leech settings
+scrape - Magnet Scaper Scrape magnets from 1Tamilmv, Tamilblaster, Cinevez, Movierulzz and many more sites
 setthumb - Reply photo to set it as Thumbnail
 cancel - Reply to the message by which the download was initiated and that download will be cancelled
 cancelall - /cancelall - Cancel all downloading tasks
