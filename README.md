@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/weebzone/WZML">
+    <a href="https://github.com/satyamisme/WZML">
         <kbd>
             <img width="250" src="https://telegra.ph/file/496644cbabaeb916e3616.png" alt="WeebZone Logo">
         </kbd>
@@ -30,7 +30,7 @@
 ℹ️ A Powerful Pyrogram Based Telegram Mirror Leech Bot Modded by Codewithweeb to directly Mirror to Google Drive or Leech to Telegram, with Multi Direct Links Support for Enhanced Mirroring & Leeching.|
 ---|
     
-### ***Source Code*** : [Repo](https://github.com/weebzone/WZML)
+### ***Source Code*** : [Repo](https://github.com/satyamisme/WZML)
 
 #### Note: `If you Like My Work, Give Stars ⭐ to the Repo and Follow Me on Github`
     
@@ -38,13 +38,13 @@
 </div>
 </p>
 
-### 1. [***Getting Started***](https://github.com/weebzone/WZML/wiki/Getting-Started)
+### 1. [***Getting Started***](https://github.com/satyamisme/WZML/wiki/Getting-Started)
 Introduction To the Bot
 
-### 2. [***Features***](https://github.com/weebzone/WZML/wiki/Features)
+### 2. [***Features***](https://github.com/satyamisme/WZML/wiki/Features)
 List of features supported by bot
 
-### 3. [***config.env Variables***](https://github.com/weebzone/WZML/wiki/Setting-up-the-config.env-file)
+### 3. [***config.env Variables***](https://github.com/satyamisme/WZML/wiki/Setting-up-the-config.env-file)
 List of Variables used by the Bot
 
 
@@ -56,7 +56,7 @@ List of Variables used by the Bot
 ## Deploying on VPS Using Docker
 - Clone this repo:
 ```
-git clone https://github.com/weebzone/WZML mirrorbot/ && cd mirrorbot
+git clone https://github.com/satyamisme/WZML mirrorbot/ && cd mirrorbot
 ```
 - Start Docker daemon (SKIP if already running):
 ```
