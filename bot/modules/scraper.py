@@ -1,6 +1,6 @@
 from re import match as rematch, findall, sub as resub
-from asyncio import sleep
-from cloudscraper import create_scraper
+from time import sleep
+import cloudscraper
 from urllib.parse import urlparse
 from requests import get as rget
 from bs4 import BeautifulSoup, NavigableString, Tag
@@ -60,7 +60,7 @@ def scrapper(update, context):
         prsd = htpmovies(link)
         editMessage(prsd, sent)
     elif "htpmovies" in link:
-        sent = sendMessage('Running Scrape. Wait about some secs...', context.bot, update.message)
+        sent = sendMessage('Running scrape. Wait about some secs.', context.bot, update.message)
         prsd = ""
         links = []
         res = rget(link)
@@ -70,12 +70,7 @@ def scrapper(update, context):
             links.append(a['href'])
         for o in links:
             url = f"https://htpmovies.lol"+o
-            purl = htpmovies(url)
-            res = rget(purl)
-            soup = BeautifulSoup(res.content, "html.parser")
-            title = soup.title.get_text()
-            reftxt = resub(r'www\S+', '', title)
-            prsd += f'{reftxt} {purl}\n\n'
+            prsd += htpmovies(url) + '\n\n'
             if len(prsd) > 4000:
                 deleteMessage(context.bot, sent)
                 sendMessage(prsd, context.bot, update.message)
@@ -84,7 +79,6 @@ def scrapper(update, context):
             deleteMessage(context.bot, sent)
             sendMessage(prsd, context.bot, update.message)
     elif "cinevood" in link:
-        sent = sendMessage('Running Scrape. Wait about some secs...', context.bot, update.message)
         prsd = ""
         links = []
         res = rget(link)
@@ -99,11 +93,9 @@ def scrapper(update, context):
             reftxt = resub(r'Kolop \| ', '', title)
             prsd += f'{reftxt} {o}\n\n'
             if len(prsd) > 4000:
-                deleteMessage(context.bot, sent)
                 sendMessage(prsd, context.bot, update.message)
                 prsd = ""
         if prsd != "":
-            deleteMessage(context.bot, sent)
             sendMessage(prsd, context.bot, update.message)
     elif "atishmkv" in link:
         prsd = ""
@@ -133,7 +125,7 @@ def scrapper(update, context):
 def htpmovies(link):
     download = rget(link, stream=True, allow_redirects=False) 
     xurl =download.headers["location"]   
-    client = create_scraper(allow_brotli=False)
+    client = cloudscraper.create_scraper(allow_brotli=False)
     param = xurl.split("/")[-1]
     DOMAIN = "https://go.kinemaster.cc"
     final_url = f"{DOMAIN}/{param}"
@@ -145,9 +137,15 @@ def htpmovies(link):
     h = { "x-requested-with": "XMLHttpRequest" }
     sleep(10)
     r = client.post(f"{DOMAIN}/links/go", data=data, headers=h)
+    final = r.json()['url']
+    p = rget(final)
+    soup = BeautifulSoup(p.text, "html.parser")
+    title = soup.title.get_text()
+    reftxt = resub(r'www\S+', '', title)
+    
     try:
-        return r.json()['url']
-    except: return "Something went Wrong :("
+        return f'{reftxt} {final}'
+    except: return "Something went wrong :("
         
 srp_handler = CommandHandler(BotCommands.ScrapeCommand, scrapper,
 
