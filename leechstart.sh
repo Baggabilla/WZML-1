@@ -9,4 +9,4 @@ echo yes | sudo docker container prune
 #echo yes | sudo docker image prune -a
 sudo dockerd
 sudo docker build . -t mirror-bot
-sudo docker run -p 80:80 mirror-bot
+sudo docker run -p 51:51 mirror-bot
